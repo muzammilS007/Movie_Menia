@@ -1,6 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.movie_menia">
+    <uses-permission android:name="android.permission.INTERNET"/>
    <application
+       android:usesCleartextTraffic="true"
+       android:allowClearUserData="true"
         android:label="movie_menia"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
