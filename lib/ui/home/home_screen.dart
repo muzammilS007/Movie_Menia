@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_menia/ui/home/home_screen_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
+import '../movie_detail/movie_detail_screen.dart';
 import '../watch/watch_screen.dart';
 import '../watch/widget/movie_item_view.dart';
 
@@ -11,17 +12,17 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: SafeArea(
-        left: false,
-        right: false,
-        bottom: false,
-        child: ViewModelBuilder<HomeScreenViewModel>.reactive(
-            viewModelBuilder: () => HomeScreenViewModel(),
-            builder: (cntx, viewmodel, chlid) {
-              return Scaffold(
-                body: WatchScreen(),
+    return ViewModelBuilder<HomeScreenViewModel>.reactive(
+        viewModelBuilder: () => HomeScreenViewModel(),
+        builder: (cntx, viewmodel, chlid) {
+          return Container(
+            color: Color.fromARGB(255, 46, 39, 57),
+            child: SafeArea(
+              left: false,
+              right: false,
+              bottom: false,
+              child: Scaffold(
+                body: viewmodel.buildScreens()[viewmodel.index],
                 bottomNavigationBar: Container(
                   decoration: const BoxDecoration(
                       color: Color.fromARGB(255, 46, 39, 57),
@@ -138,9 +139,9 @@ class HomeScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-              );
-            }),
-      ),
-    );
+              ),
+            ),
+          );
+        });
   }
 }

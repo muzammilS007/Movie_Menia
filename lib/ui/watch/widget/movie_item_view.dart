@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_menia/network/model/movies_list.dart';
 
@@ -7,10 +8,10 @@ Widget movieItemUI(BuildContext context,String? posterimg , String? title) {
   MediaQueryData queryData;
   queryData = MediaQuery.of(context);
   return Container(
-    margin: const EdgeInsets.only(left: 10, right: 10,top: 10),
+    margin: const EdgeInsets.only(left: 20, right: 20,top: 20),
     decoration: ShapeDecoration(
         image:  DecorationImage(
-            image: NetworkImage("$POSTER_IMAGE_PATH"+"$posterimg"),
+            image:  CachedNetworkImageProvider("$POSTER_IMAGE_PATH$posterimg" ),
             fit: BoxFit.fitWidth),
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadiusDirectional.circular(20))),
