@@ -7,6 +7,7 @@ import '../../../utils/constants.dart';
 Widget movieItemUI(BuildContext context,String? posterimg , String? title) {
   MediaQueryData queryData;
   queryData = MediaQuery.of(context);
+
   return Container(
     margin: const EdgeInsets.only(left: 20, right: 20,top: 20),
     decoration: ShapeDecoration(

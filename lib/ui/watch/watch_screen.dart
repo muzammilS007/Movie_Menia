@@ -20,8 +20,8 @@ class WatchScreen extends StatelessWidget {
           return viewmodel.index == 0
               ? Column(
               children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 8),
+                  Material(
+                    elevation: 8,
                     child: Row(
                       children: [
                         const Expanded(
@@ -59,10 +59,7 @@ class WatchScreen extends StatelessWidget {
                             .upcomingMoviesList.results?[index].id;
                         return GestureDetector(
                             onTap: () => {
-
-                              print(id.toString()),
                               MovieDetailScreen(id: id,).pushNavigation(context)
-
                             },
                             child: movieItemUI(cntx, poster, tille));
                       },

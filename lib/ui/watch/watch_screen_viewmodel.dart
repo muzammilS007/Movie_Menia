@@ -18,6 +18,7 @@ class WatchScreenViewModel with ChangeNotifier {
   getUpComingMovies() {
     var dio = Dio();
     var apiclient = RestClient(dio);
+
     apiclient.getUpcomingMoviesList().then((value) => {
           upcomingMoviesList = value,
           print(value.results.toString()),
